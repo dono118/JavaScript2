@@ -1,0 +1,14 @@
+/* 
+    .js  引入.js文件
+
+    声明公共样式的时候：
+        标准：_base.scss
+        引入：@import "base"
+*/
+@import "base";
+@import "mixin";
+
+#div1{
+    @include clearBoth;
+}
+

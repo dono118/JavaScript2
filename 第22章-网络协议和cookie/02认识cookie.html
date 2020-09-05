@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+        <title>Document</title>
+        <script>
+            /* 
+                cookie
+                    1、可以设置过期时间
+                    2、最大可以存储4KB，每一个域名下最多可以存储50条数据(不同的浏览器，有偏差)
+                【注】只能字符串。一般只存储一些重要的信息。登录，购物车信息，是否点赞，视频播放进度等。
+             */
+
+
+             /* 
+                cookie的语法
+                格式： name=value;[expires=date];[path=path];[domain=somewhere.com];[secure]，
+                name 键
+                value 值  都是自定义
+                【注】后续中括号的内容（中括号是我加的），都是可选项。
+
+                【注】火狐支持本地加载的文件缓存cookie，谷歌只支持服务器加载文件缓存cookie
+              */
+
+
+              //设置cookie
+              document.cookie = 'username=xxx';
+
+
+              //获取cookie
+              alert(document.cookie);
+        </script>
+    </head>
+    <body>
+        
+    </body>
+</html>

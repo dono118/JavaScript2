@@ -1,0 +1,23 @@
+/* 
+    @extend 进行继承
+*/
+.btn{
+    width: 200px;
+    height: 50px;
+    a{
+        color: red;
+        &:hover{
+            background-color: orange;
+            color: yellow
+        }
+    }
+}
+.btn-primary{
+    @extend .btn;
+    background-color: blue;
+}
+
+.btn-success{
+    @extend .btn;
+    background-color: green;
+}

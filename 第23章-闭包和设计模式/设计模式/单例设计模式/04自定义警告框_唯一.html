@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+        <title>Document</title>
+        <style>
+            #div1{width: 300px; height: 150px; border: 1px solid black; background-color: orange; font-size: 30px; line-height: 150px; text-align: center; margin: 100px auto}
+        </style>
+        <script>
+            window.onload = function(){
+                var oBtn = document.getElementById("btn1");
+               
+                var oClose = document.getElementById("close");
+                oClose.onclick = function(){
+                    var node = document.getElementById("div1");
+                    node.style.display = 'none';
+                }
+               
+                oBtn.onclick = function(){
+                    createAlert();
+                }
+            }
+
+            function createAlert(){
+                var node = document.getElementById("div1");
+                if(!node){
+                    node = document.createElement("div");
+                    node.id = 'div1';
+                    node.innerHTML = '我是警告框';
+                    document.body.appendChild(node);
+                }else{
+                    node.style.display = 'block';
+                }
+                
+            }
+            /* 
+                我们每一次点击弹出警告框，我们都需要在页面上查找一次，效率太低。
+                我们可以将警告框，直接存储在内存，将警告框常驻内存，闭包。
+             */
+        </script>
+    </head>
+    <body>
+        <button id = 'btn1'>弹出警告框</button>
+        <button id = 'close'>关闭警告框</button>
+       <!--  <div id = 'div1'>
+            我是警告框
+        </div> -->
+    </body>
+</html>

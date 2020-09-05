@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+        <title>Document</title>
+        <script>
+            /* 
+                闭包的好处：
+                    1、希望一个变量常驻在内存当中
+                    2、避免全局变量的污染
+                    3、声明私有变量
+
+                【注】我们应该避免声明全局变量，避免全局变量的污染。
+             */
+
+             //例子：
+            /*  var a = 2; //全局变量
+             function show(){
+                 a++;  
+                 alert(a);
+             }
+
+             show(); //3
+             show(); //4
+
+             alert(a); */
+
+             
+            /*  function show(){
+                 var a = 2; //局部变量
+                 a++;  
+                 alert(a);
+             }
+
+             show(); //3
+             show(); //4
+
+             alert(a); //报错 */
+
+             /* 
+                问题：a要进行累加，并且我们不能声明全局变量。
+                解决：使用闭包
+              */
+
+              /* function aaa(){
+                  var a = 2;  //私有变量
+                  function bbb(){
+                      a++;
+                      alert(a);
+                  }
+                  return bbb;
+              }
+
+              var ccc = aaa();
+
+              ccc();
+              ccc();
+              alert(a);  // a is not defined */
+
+
+
+              
+
+             /*  var ccc = (function(){
+                  var a = 2;  //私有变量
+                  return function(){
+                      a++;
+                      alert(a);
+                  };
+              })();
+
+              ccc();
+              ccc();
+              alert(a);  // a is not defined */
+
+
+              var ccc = (function(){
+                  var a = 2;
+                  return function(){
+                      a++;
+                      alert(a);
+                  }
+              })();
+
+
+              ccc();
+              ccc();
+        </script>
+    </head>
+    <body>
+        
+    </body>
+</html>

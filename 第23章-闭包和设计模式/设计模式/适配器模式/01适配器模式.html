@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+        <title>Document</title>
+        <script>
+            /* 
+                1、接收一个老项目
+                2、开发了一半的项目
+
+                原则：
+                    <1>尽量不要去修改老的源代码
+                    <2>兼容老代码，还能增加新功能。
+             */
+
+             function sum(x, y){
+                 return x + y;
+             }
+
+             alert(sum(10, 20));
+
+            // 在老函数的功能上再去增加一些功能。
+            //写一个适配器
+            function add(x, y){
+                return sum(x, y) + "我是新功能";
+            }
+
+            alert(add(40, 50));
+        </script>
+    </head>
+    <body>
+        
+    </body>
+</html>

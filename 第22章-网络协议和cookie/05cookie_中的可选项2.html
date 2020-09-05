@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+        <title>Document</title>
+        <script>
+            /* 
+                cookie
+                    1、可以设置过期时间
+                    2、最大可以存储4KB，每一个域名下最多可以存储50条数据(不同的浏览器，有偏差)
+                【注】只能字符串。一般只存储一些重要的信息。登录，购物车信息，是否点赞，视频播放进度等。
+             */
+
+
+             /* 
+                cookie的语法
+                格式： name=value;[expires=date];[path=path];[domain=somewhere.com];[secure]，
+                name 键
+                value 值  都是自定义
+                【注】后续中括号的内容（中括号是我加的），都是可选项。
+
+                【注】火狐支持本地加载的文件缓存cookie，谷歌只支持服务器加载文件缓存cookie
+              */
+            /* 
+                expires：过期时间
+                    必须填写，日期对象
+                    【注】系统会自动清除过期的cookie。
+             */
+             /* 
+                path  限制访问路径
+                    如果不去设置，默认是加载当前.html文件的路径
+                【注】我们设置的cookie的路径，和加载当前文件的路径，必须一致，如果不一致，cookie访问失败。
+
+              */
+
+            /* 
+                domain 限制访问域名
+                    如果不去设置，默认是加载当前.html文件的服务器域名/ip
+                【注】如果加载当前文件域名和设置的域名不一致，设置cookie失败。
+             */
+
+
+            /* 
+                secure 
+                    如果不设置，设置cookie，可以通过http协议加载文件设置
+                                        也可以通过https协议加载文件设置
+
+                    【注】设置这个字段以后，只能设置https协议加载cookie.
+                
+                https  证书认证协议
+                http  
+             */
+
+            // document.cookie = 'username=xxx;domain=' + "localhosx";
+
+
+            document.cookie = 'username=xxx;secure'
+
+        </script>
+    </head>
+    <body>
+        <button id = 'btn1'>删除cookie操作</button>
+    </body>
+</html>

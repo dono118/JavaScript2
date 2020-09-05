@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+        <title>Document</title>
+        <script>
+            /* 
+                有一个团队，ABC三位员工，一起开发项目，避免全局变量污染。
+             */
+
+            //A员工的代码和函数
+             var moduleA = (function(){
+                 var count = 5;  //私有变量
+                 function aaa(){ //私有方法
+                     count += 10;
+                     alert(count);
+                 }
+
+                 function bbb(){
+                     count *= 20;
+                     alert(count);
+                 }
+                 
+                 //对外
+                 return {
+                     outA: aaa,
+                     outB: bbb
+                 }
+             })();
+
+             moduleA.outA() //15
+             moduleA.outB(); //300
+
+
+
+            //B员工代码和函数
+             var moduleB = (function(){
+                 var count = 1;
+                 function aaa(){
+                     count += 10;
+                     alert(count);
+                 }
+
+                 function bbb(){
+                     count *= 20;
+                     alert(count);
+                 }
+                 
+                 //对外
+                 return {
+                     outA: aaa,
+                     outB: bbb
+                 }
+             })();
+             moduleB.outA() //11
+             moduleB.outB(); //220
+
+            //  alert(count);
+             alert(aaa);
+        </script>
+    </head>
+    <body>
+        
+    </body>
+</html>

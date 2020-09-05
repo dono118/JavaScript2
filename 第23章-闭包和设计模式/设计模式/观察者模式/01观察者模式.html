@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+        <title>Document</title>
+        <script>
+            function ObServer(){
+                this.funcs = []; //保存订阅者的信息
+            }
+
+            ObServer.prototype.subscribe = function(funcName){
+                this.funcs.push(funcName);
+            }
+            ObServer.prototype.unsubscribe = function(funcName){
+                this.funcs = this.funcs.filter(item => item != funcName);
+            }
+            ObServer.prototype.broadcast = function(msg){
+                this.funcs.forEach(item => item(msg));
+            }
+
+
+            var kai55 = new ObServer();
+
+
+            function xiaoming(msg){
+                console.log('您好您有一条新消息：' + msg + ", 小明都等不及下班了，非常想55开吹牛");
+            }
+
+            function xiaohua(msg){
+                console.log('您好您有一条新消息：' + msg + ", 小花打开斗鱼直播，欣赏盛世美颜");
+            }
+
+
+            //订阅
+            kai55.subscribe(xiaoming);
+            kai55.subscribe(xiaohua);
+
+            kai55.broadcast("老铁们，我没开挂");
+
+            kai55.unsubscribe(xiaoming);
+
+            kai55.broadcast("老铁们，我凉了");
+        </script>
+    </head>
+    <body>
+        
+    </body>
+</html>

@@ -1,0 +1,17 @@
+$colors: (light: white,dark: black);
+
+//函数声明
+@function color($key){
+    @if not map-has-key($colors, $key){
+        //警告不会中断我们的scss监听
+        // @warn "在这个映射里没有一个叫#{$key}的键";
+
+        //错误会中断我们的scss监听
+        @error "在这个映射里没有一个叫#{$key}的键";
+    }
+    @return map-get($colors, $key); 
+}
+//函数调用
+body{
+    background-color: color(xxx);
+}

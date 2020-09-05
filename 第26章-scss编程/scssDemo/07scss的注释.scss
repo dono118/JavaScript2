@@ -1,0 +1,18 @@
+// 普通注释  不会显示在.css文件中
+
+/* 
+    多行注释  会出现在.css文件中，不会出现在压缩版本里
+*/
+
+/*! 
+    强制注释  在任何版本下都会保留
+*/
+#div1{
+    width: 100px; 
+    height: 200px;
+    .box{background-color: red}
+}
+
+#div2{
+    width: percentage(100px/200px);
+}

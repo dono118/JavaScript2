@@ -1,0 +1,11 @@
+//属性嵌套(了解)
+#div1{
+    border:{
+        left:{
+            width: 1px;
+            style: solid;
+            color: red;
+        }
+    }
+    border-top: 2px dashed black;
+}

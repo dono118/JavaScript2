@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+        <title>Document</title>
+        <style>
+            #div1{display: none;width: 300px; height: 150px; border: 1px solid black; background-color: orange; font-size: 30px; line-height: 150px; text-align: center; margin: 100px auto}
+        </style>
+        <script>
+            window.onload = function(){
+                var oBtn = document.getElementById("btn1");
+                var oDiv = document.getElementById("div1");
+                oBtn.onclick = function(){
+                    oDiv.style.display = 'block';
+                }
+            }
+            /* 
+                假如我们需要在不同的页面弹出警告框，下面这个代码是不同复用
+             */
+        </script>
+    </head>
+    <body>
+        <button id = 'btn1'>警告框</button>
+        <div id = 'div1'>
+            我是警告框
+        </div>
+    </body>
+</html>

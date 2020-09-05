@@ -1,0 +1,53 @@
+/* 
+    混合  类似于C语言中的宏定义
+    混合  代码块(不是函数)
+
+    @mixin 混合名字{}
+    @include 混合名字;
+
+    【注】可以选择有参数或者没有参数。
+*/
+@mixin center-block {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+//清除浮动
+
+@mixin clearBoth{
+    content: "";
+	display: block;
+	height: 0px;
+	clear: both;
+	overflow: hidden;
+	visibility: hidden;
+}
+
+
+#div1{
+    @include center-block;
+    .box{
+        @include clearBoth;
+    }
+}
+
+
+@mixin xxx($padding: 30px, $border: 1px solid black) {
+    border-right: $border;
+    border-top: $border;
+    padding-left: $padding;
+}
+
+#div2{
+    @include xxx;
+    .box1{
+        @include xxx(50px);
+    }
+    .box2{
+        @include xxx(50px, 3px dashed red);
+    }
+    .box3{
+        @include xxx($border: 5px dashed orange);
+    }
+}
+

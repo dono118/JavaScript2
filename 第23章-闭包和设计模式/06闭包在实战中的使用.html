@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+        <title>Document</title>
+        <script>
+            window.onload = function(){
+                var aBtns = document.getElementsByTagName("button");
+                for(var i = 0; i < aBtns.length; i++){
+                   /*  aBtns[i].index = i;
+
+
+                    aBtns[i].onclick = function(){
+                        alert(this.index);
+                    } */
+
+                   /*  aBtns[i].onclick = (function(index){
+                        return function(){
+                            alert(index);
+                        }
+                    })(i); */
+                    aBtns[i].onclick = btnClick(i);
+                }
+
+
+                function btnClick(index){
+                    return function(){
+                        alert(index);
+                    }
+                }
+               
+            }
+
+                     /* aBtns[0].onclick = (function(index){
+                         //index = 0
+                        return function(){
+                            alert(index);
+                        }
+                    })(0);
+
+                    aBtns[1].onclick = (function(index){
+                         //index = 1
+                        return function(){
+                            alert(index);
+                        }
+                    })(1); */
+        </script>
+    </head>
+    <body>
+        <button>1111</button>
+        <button>2222</button>
+        <button>3333</button>
+    </body>
+</html>

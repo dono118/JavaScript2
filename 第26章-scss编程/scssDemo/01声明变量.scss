@@ -1,0 +1,38 @@
+$xxx: 300px;
+$xxx: 100px; //普通变量
+
+
+$yyy: 50px;  
+//默认变量 只要有新值进行赋值，值就用新值
+$yyy: 200px !default; 
+
+#div1{
+    width: $xxx;
+    height: $yyy;
+}
+
+
+$color: red; //全局变量
+
+#div2{
+    color: $color;
+    $color: orange !global; //局部变量  全局变量
+    .box{
+        background-color: $color;
+    }
+}
+
+#div3{
+    background-color: $color;
+}
+
+
+/* 
+    特殊变量
+    #{表达式/变量}; 进行字符串拼接
+    类似于js中的ECMA6 ${};
+*/
+$zzz: top;
+#div4{
+    border-#{$zzz}: 1px solid black;
+}

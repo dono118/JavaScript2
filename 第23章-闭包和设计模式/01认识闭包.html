@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+        <title>Document</title>
+        <script>
+            /* 
+                什么是闭包？
+                    1、函数嵌套函数
+                    2、内部函数引用外部函数到的变量或者形参
+                    3、被引用的变量或者形参就不会被垃圾回收机制所回收，常驻内存。
+             */
+
+             /* 
+                回顾垃圾回收机制：函数作用域（结果）
+              */
+
+             /*  function show(num1){
+                var num2 = 20;
+                alert(num1 + ", " + num2);
+              }
+
+              show(10);
+
+              alert(num1); */
+
+
+              function aaa(num1){
+                  var num2 = 20;
+                  function bbb(){
+                      alert(num1 + ", " + num2);
+                  }
+                  return bbb;
+              }
+
+              var ccc = aaa(10);
+              ccc();
+        </script>
+    </head>
+    <body>
+        
+    </body>
+</html>

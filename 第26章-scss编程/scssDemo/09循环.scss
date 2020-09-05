@@ -1,0 +1,31 @@
+$count: 12;
+//包含结束位置
+@for $i from 1 through $count{
+    .col-lg-#{$i}{
+        width: 100px / 12 * $i;
+    }
+}
+
+
+//不包含结束位置
+@for $i from 1 to $count{
+    .col-md-#{$i}{
+        width: 100px / 12 * $i;
+    }
+}
+
+$icons: success warning error primary info;
+@each $icon in $icons{
+    .icon-#{$icon}{
+        background: url(images/#{$icon}.png) no-repeat;
+    }
+}
+
+
+$num: 6;
+@while $num > 0{
+    .item#{$num}{
+        width: 1em * $num;
+    }
+    $num: $num - 1;
+}

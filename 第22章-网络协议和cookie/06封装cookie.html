@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+        <title>Document</title>
+        <script>
+            /* 
+                setCookie()
+                getCookie()
+                removeCookie();
+
+                encodeURIComponent  将中文编译成对应的字符
+                decodeURIComponent  将对应的字符编译成中文
+             */
+
+            //name=value;[expires=date];[path=path];[domain=somewhere.com];[secure]，
+            /* 
+                expires  传入对应天数
+             */
+            function setCookie(name, value, {expires, path, domain, secure}){
+                var cookieStr = encodeURIComponent(name) + "=" + encodeURIComponent(value);
+                if(expires){
+                    cookieStr += ";expires=" + afterOfDate(expires);
+                }
+                if(path){
+                    cookieStr += ";path=" + path;
+                }
+                if(domain){
+                    cookieStr += ";domain=" + domain;
+                }
+                if(secure){
+                    cookieStr += ";secure";
+                }
+                document.cookie = cookieStr;
+            }
+
+            //获取n天后的日期
+            function afterOfDate(n){
+                 var d = new Date();
+                 var day = d.getDate();
+                 d.setDate(n + day);
+                 return d;
+             }
+
+
+
+
+
+             setCookie("超级英雄", "钢铁侠", {
+                 expires: 7
+             })
+             setCookie("DC", "海王", {
+                 expires: 30
+             });
+             setCookie("神话", "孙悟空", {
+                 expires: 60
+             });
+
+
+             //超级英雄=钢铁侠; DC=海王; 神话=孙悟空 
+
+            //  alert(decodeURIComponent(document.cookie));
+
+            alert(getCookie("超级英雄"));
+            alert(getCookie("DC"));
+            alert(getCookie("神话"));
+
+
+             function getCookie(name){
+                var cookieStr = decodeURIComponent(document.cookie);
+                var start = cookieStr.indexOf(name + "=");
+                if(start == -1){
+                    return null;
+                }else{
+                    //查询从start位置开始遇到的第一个分号
+                    var end = cookieStr.indexOf(";", start);
+                    if(end == -1){
+                        end = cookieStr.length;
+                    }
+
+                    //进行字符串提取
+                    var str = cookieStr.substring(start, end);
+                    var arr = str.split("=");
+                    return arr[1];
+                }
+             }
+
+            function removeCookie(name){
+                document.cookie = encodeURIComponent(name) + "=;expires=" + new Date(0);
+            }
+
+            window.onload = function(){
+                var oBtn = document.getElementById("btn1");
+                oBtn.onclick = function(){
+                    removeCookie("超级英雄");
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <button id = 'btn1'>删除cookie</button>
+    </body>
+</html>

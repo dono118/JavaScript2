@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新闻列表</title>
+    <script src="./ajax.js"></script>
+    <script>
+        window.onload = function () {
+            var oBtn = document.getElementById("btn1");
+            var oUl = document.getElementById("ul1");
+            oBtn.onclick = function () {
+
+                $ajax({
+                    method: "get",
+                    url: "getNews.php",
+                    success: function (result) {
+                        // alert(result);
+                        var arr = JSON.parse(result);
+
+                        var str = ``;
+                        // 通过循环创建节点添加到页面上
+                        for (var i = 0; i < arr.length; i++) {
+                            str += `<li>
+                                        <a href="#${i}">${arr[i].title}</a>
+                                        <span>【${arr[i].date}】</span>
+                                    </li>`
+                        }
+                        // alert(str);
+                        oUl.innerHTML = str;
+                    },
+                    error: function (msg) {
+                        alert(msg);
+                    }
+                })
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <button id="btn1">获取新闻</button>
+    <ul id="ul1">
+        <!-- <li>
+            <a href="#">标题</a>
+            <span>【日期】</span>
+        </li> -->
+    </ul>
+</body>
+
+</html>

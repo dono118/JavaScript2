@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+        <title>Document</title>
+        <script src = 'cookie.js'></script>
+        <script>
+
+            $cookie("超级英雄", "钢铁侠");
+            $cookie("DC", "蝙蝠侠", {
+                expires: 7
+            });
+            $cookie("神话", "猪八戒", {
+                expires: 30
+            });
+
+            alert($cookie("超级英雄"));
+            alert($cookie("DC"));
+            alert($cookie("神话"));
+
+            window.onload = function(){
+                var oBtn = document.getElementById("btn1");
+                oBtn.onclick = function(){
+                    $cookie("超级英雄", null);
+                    alert($cookie("超级英雄"));
+                }
+            }
+            
+        </script>
+    </head>
+    <body>
+        <button id = 'btn1'>删除cookie</button>
+    </body>
+</html>

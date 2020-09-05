@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+        <title>Document</title>
+        <style>
+            #div1{width: 300px; height: 150px; border: 1px solid black; background-color: orange; font-size: 30px; line-height: 150px; text-align: center; margin: 100px auto}
+        </style>
+        <script>
+            window.onload = function(){
+                var oBtn = document.getElementById("btn1");
+               
+                oBtn.onclick = function(){
+                    createAlert();
+                }
+            }
+
+            function createAlert(){
+                var node = document.createElement("div");
+                node.id = 'div1';
+                node.innerHTML = '我是警告框';
+                document.body.appendChild(node)
+            }
+            /* 
+                假如我们需要在不同的页面弹出警告框，下面这个代码是不同复用
+                重复点击创建了多个警告框
+             */
+        </script>
+    </head>
+    <body>
+        <button id = 'btn1'>警告框</button>
+       <!--  <div id = 'div1'>
+            我是警告框
+        </div> -->
+    </body>
+</html>
