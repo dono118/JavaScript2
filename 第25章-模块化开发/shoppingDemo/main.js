@@ -11,7 +11,7 @@ require.config({
         "banner": "banner"
     },
     shim: {
-        //设置依赖关系  先引入jquery.js  然后在隐去jquery-cookie
+        //设置依赖关系  先引入jquery.js  然后再去引jquery-cookie
         "jquery-cookie": ["jquery"],
         //声明当前模块不遵从AMD
         "parabola": {
